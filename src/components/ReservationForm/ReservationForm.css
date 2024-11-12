@@ -1,0 +1,89 @@
+/* src/components/ReservationForm.css */
+
+.form-row {
+  display: flex; /* Utiliza flexbox para alinear los elementos en la misma fila */
+  align-items: center; /* Alinea verticalmente al centro */
+  margin-bottom: 10px; /* Espacio entre las filas */
+}
+
+input[type="date"],
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border 0.3s;
+  width: calc(100% - 22px); /* Para compensar el padding */
+}
+
+input[type="date"]:focus,
+select:focus {
+  border: 1px solid #4CAF50; /* Color verde al enfocar */
+  outline: none;
+}
+
+/* Resto de tu CSS */
+
+.reservation-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.reservation-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  max-width: 90%;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.submit-button {
+  background-color: #00d312;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #00b32d;
+}
+
+.submit-button:disabled {
+  background-color: #b0b0b0; /* Color gris para el botón desactivado */
+  color: #fff; /* Mantiene el texto en blanco */
+  cursor: not-allowed; /* Cambia el cursor al pasar por encima */
+  opacity: 0.6; /* Añade un poco de opacidad para el efecto visual */
+}
+
+.label {
+  margin-right: 5px; /* Margen entre la etiqueta y el input */
+}
+
+.no-availability-message {
+  color: red; /* Cambia el color del texto a rojo */
+  font-weight: bold; /* Opcional: hace el texto más destacado */
+  margin-top: 10px; /* Añade un margen superior */
+}

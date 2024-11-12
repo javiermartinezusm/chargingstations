@@ -1,0 +1,80 @@
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.styled-table th, .styled-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.action-btn {
+    margin: 0 5px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.add-btn:hover {
+    background-color: #45a049;
+}
+
+.remove-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.remove-btn:hover {
+    background-color: #e53935;
+}
+
+.view-btn {
+    background-color: #2196F3;
+    color: white;
+}
+
+.view-btn:hover {
+    background-color: #1e88e5;
+}
+
+.monitor-btn {
+    background-color: #ff9800;
+    color: white;
+}
+
+.monitor-btn:hover {
+    background-color: #e68900;
+}
+
+.consumption-chart {
+    margin-top: 20px;
+}

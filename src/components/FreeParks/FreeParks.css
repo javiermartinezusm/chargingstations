@@ -1,0 +1,44 @@
+.reserve-button {
+    background-color: #00d312; /* Color de fondo verde */
+    color: white; /* Color del texto */
+    padding: 12px 24px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de la fuente */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+  }
+  
+  /* Cambia el color de fondo al pasar el mouse */
+  .reserve-button:hover {
+    background-color: #00b32d; /* Color más oscuro al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de elevación */
+  }
+  
+  /* Cambia el color de fondo al hacer clic */
+  .reserve-button:active {
+    background-color: rgb(11, 133, 0); /* Color aún más oscuro al hacer clic */
+    transform: translateY(0); /* Efecto de "presionar" */
+  }
+
+  .login-warning {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(246, 246, 157);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px auto; /* Centrar el bloque horizontalmente */
+    width: 50%; /* Hacer el bloque más pequeño */
+    max-width: 400px; /* Limitar el ancho máximo */
+    text-align: center;
+  }
+  
+  .warning-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+  }
+  

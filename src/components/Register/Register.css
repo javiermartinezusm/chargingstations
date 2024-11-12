@@ -1,0 +1,61 @@
+/* src/components/Register.css */
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+  }
+  
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #00d312;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .input-field {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #00d312;
+    border-radius: 4px;
+  }
+  
+  .password-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .checkbox-container {
+    display: flex;
+    align-items: left;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .checkbox-container input {
+    margin-right: 5px;
+  }
+  
+  .register-button {
+    padding: 10px;
+    background-color: #00d312;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .register-button:hover {
+    background-color: #00b32d;
+  }
+  
+  .register-button:active {
+    background-color: rgb(11, 133, 0);
+    transform: translateY(0);
+  }
+  

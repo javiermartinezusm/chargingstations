@@ -1,0 +1,32 @@
+/* src/components/Locations.css */
+
+.button {
+    display: inline-block; /* Para que el botón se comporte como un bloque */
+    padding: 15px 30px; /* Espaciado interno del botón */
+    font-size: 18px; /* Tamaño de la fuente */
+    color: white; /* Color del texto */
+    background-color: #a7a7a7; /* Color de fondo */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+    cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+    margin: 10px; /* Espacio entre los botones */
+}
+
+/* Cambia el color de fondo al pasar el mouse */
+.button:hover {
+    background-color: #8f8f8f; /* Color más oscuro al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+/* Cambia el color de fondo al hacer clic */
+.button:active {
+    background-color: #80857f; /* Color aún más oscuro al hacer clic */
+    transform: translateY(0); /* Efecto de "presionar" */
+}
+
+.button.selected {
+    background-color: #5f5f5f; /* Cambia el color de fondo cuando está seleccionado */
+    color: #fff; /* Color del texto */
+}

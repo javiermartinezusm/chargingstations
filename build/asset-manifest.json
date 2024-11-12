@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.82e716bf.css",
+    "main.js": "/static/js/main.2b768e2a.js",
+    "static/js/453.5ec44977.chunk.js": "/static/js/453.5ec44977.chunk.js",
+    "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.07ed6d5fa32c1d54af0f.ttf",
+    "static/media/fa-brands-400.ttf": "/static/media/fa-brands-400.0ff70dcbf135d859ebf3.ttf",
+    "static/media/fa-solid-900.woff2": "/static/media/fa-solid-900.93f719f4d62bfa3e748c.woff2",
+    "static/media/fa-brands-400.woff2": "/static/media/fa-brands-400.bb8d5a145e22822103fb.woff2",
+    "static/media/fa-regular-400.ttf": "/static/media/fa-regular-400.17a6e1aebccdbaa39e78.ttf",
+    "static/media/green_charger.png": "/static/media/green_charger.55d05f4c954d7759d328.png",
+    "static/media/red_charger.png": "/static/media/red_charger.6b80590983f78851db89.png",
+    "static/media/black_car.png": "/static/media/black_car.2acf7952f76e44f489a8.png",
+    "static/media/fa-regular-400.woff2": "/static/media/fa-regular-400.bc3722686635b5f86132.woff2",
+    "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.0f6cb412603527bda691.ttf",
+    "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.6cfec8414be20e2c3426.woff2",
+    "index.html": "/index.html",
+    "main.82e716bf.css.map": "/static/css/main.82e716bf.css.map",
+    "main.2b768e2a.js.map": "/static/js/main.2b768e2a.js.map",
+    "453.5ec44977.chunk.js.map": "/static/js/453.5ec44977.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.82e716bf.css",
+    "static/js/main.2b768e2a.js"
+  ]
+}

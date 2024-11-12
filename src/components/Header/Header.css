@@ -1,0 +1,64 @@
+/* src/components/Header.css */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f0f0f0; /* Cambia este color según prefieras */
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px; /* Ajusta el tamaño del logo */
+  margin-right: 10px; /* Espacio entre el logo y el título */
+}
+
+.web_title {
+  margin-left: 0;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.nav a:hover {
+  color: #00b32d; /* Color de hover */
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #000;
+  padding: 10px;
+  transition: color 0.3s;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  color: #00b32d;
+  border-bottom: 2px solid #00b32d;
+}
+
+.user-name {
+  font-weight: bold; /* Poner el nombre del usuario en negrita */
+}
+
+.divider {
+  border-left: 1px solid #ccc; /* Estilo de la línea divisoria */
+  margin: 0 10px; /* Espaciado a ambos lados de la línea */
+  height: 24px; /* Altura de la línea */
+  align-self: center; /* Centrar verticalmente la línea */
+}

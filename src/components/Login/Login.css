@@ -1,0 +1,87 @@
+/* src/components/Login.css */
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh; /* Centra el contenedor verticalmente */
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px; /* Ancho del formulario */
+  padding: 20px;
+  border: 1px solid #00d312; /* Borde */
+  border-radius: 8px; /* Esquinas redondeadas */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.input-field {
+  margin-bottom: 10px; /* Espaciado entre inputs */
+  padding: 10px;
+  border: 1px solid #00d312; /* Borde */
+  border-radius: 4px; /* Esquinas redondeadas */
+}
+
+.password-container {
+  display: flex;
+  width: 100%;
+  align-items: center; /* Alinea el input y el botón verticalmente */
+}
+
+.password-toggle-button {
+  position: absolute; /* Posición absoluta para superponer el botón en el input */
+  right: 10px; /* Ajusta según sea necesario */
+  top: 50%; /* Centro verticalmente */
+  transform: translateY(-50%); /* Compensa el centrado */
+  background: none; /* Sin fondo */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Cambia el cursor a puntero */
+  z-index: 1; /* Asegúrate de que el botón esté por encima del campo de entrada */
+}
+
+
+.login-button {
+  padding: 10px;
+  background-color: #00d312; /* Color de fondo */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  border-radius: 4px; /* Esquinas redondeadas */
+  cursor: pointer; /* Cambia el cursor a puntero */
+}
+
+.login-button:hover {
+  background-color: #00b32d; /* Color más oscuro al pasar el mouse */
+}
+
+/* Cambia el color de fondo al hacer clic */
+.login-button:active {
+  background-color: rgb(11, 133, 0); /* Color aún más oscuro al hacer clic */
+  transform: translateY(0); /* Efecto de "presionar" */
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center; /* Centra verticalmente el texto y la casilla */
+  margin-top: 1px; /* Espacio entre el input de contraseña y el checkbox */
+  margin-bottom: 5px;
+}
+
+.checkbox-container input {
+  margin-right: 5px; /* Espacio entre la casilla y el texto */
+}
+
+.register-button {
+  padding: 10px;
+  margin-top: 5px;
+  background-color: #6c757d; /* Color de fondo */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  border-radius: 4px; /* Esquinas redondeadas */
+  cursor: pointer; /* Cambia el cursor a puntero */
+}
+
+.register-button:hover {
+  background-color: #5a6268;
+}
