@@ -15,7 +15,7 @@
 }
 
 .styled-table thead tr {
-    background-color: #009879;
+    background-color: #4CAF50;
     color: #ffffff;
     text-transform: uppercase;
 }
@@ -39,24 +39,6 @@
     transition: background-color 0.3s ease;
 }
 
-.add-btn {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.add-btn:hover {
-    background-color: #45a049;
-}
-
-.remove-btn {
-    background-color: #f44336;
-    color: white;
-}
-
-.remove-btn:hover {
-    background-color: #e53935;
-}
-
 .view-btn {
     background-color: #2196F3;
     color: white;
@@ -77,4 +59,19 @@
 
 .consumption-chart {
     margin-top: 20px;
+}
+
+.monitoring-data {
+    text-align: center;
+}
+
+.graph-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.graph-container h4 {
+    margin-bottom: 10px;
 }

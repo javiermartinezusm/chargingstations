@@ -1,15 +1,16 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import './MyStations.css';
 
 function MyStations({ user }) {
     const [locations, setLocations] = useState([]);
     const [stationCounts, setStationCounts] = useState({});
-    const [quantity, setQuantity] = useState(1);
-    const [reservations, setReservations] = useState([]); 
+    const [reservations, setReservations] = useState([]);
     const [selectedLocation, setSelectedLocation] = useState(null);
     const [monitoringData, setMonitoringData] = useState({});
-    const [viewingMonitoring, setViewingMonitoring] = useState(false); 
+    const [viewingMonitoring, setViewingMonitoring] = useState(false);
+
     const fetchLocationsData = useCallback(async () => {
         if (!user?.id) return;
 
@@ -46,67 +47,6 @@ function MyStations({ user }) {
         fetchLocationsData();
     }, [fetchLocationsData]);
 
-    const handleAddStation = async (locationId) => {
-        if (quantity <= 0) {
-            alert('La cantidad debe ser mayor a 0');
-            return;
-        }
-
-        try {
-            const response = await fetch(`${window.location.protocol}//${window.location.hostname}:5000/stations`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ locationId, quantity })
-            });
-            const data = await response.json();
-
-            if (data.status === "OK") {
-                alert(`${quantity} estación(es) añadida(s) correctamente.`);
-                setStationCounts(prevCounts => ({
-                    ...prevCounts,
-                    [locationId]: (prevCounts[locationId] || 0) + data.cantidad
-                }));
-            } else {
-                console.error('Error al añadir estaciones:', data);
-            }
-        } catch (error) {
-            console.error('Error en la solicitud de añadir estaciones:', error);
-        }
-    };
-
-    const handleRemoveStation = async (locationId) => {
-        if (quantity <= 0) {
-            alert('La cantidad debe ser mayor a 0');
-            return;
-        }
-
-        try {
-            const response = await fetch(
-                `${window.location.protocol}//${window.location.hostname}:5000/stations?locationId=${locationId}&quantity=${quantity}`,
-                {
-                    method: 'DELETE',
-                    headers: { 'Content-Type': 'application/json' }
-                }
-            );
-
-            const data = await response.json();
-
-            if (data.status === "OK") {
-                alert(data.mensaje);
-                setStationCounts(prevCounts => ({
-                    ...prevCounts,
-                    [locationId]: Math.max((prevCounts[locationId] || 0) - data.cantidad, 0)
-                }));
-            } else {
-                console.error('Error al eliminar estaciones:', data);
-                alert('No se pudo eliminar la estación. Revisa la consola para más detalles.');
-            }
-        } catch (error) {
-            console.error('Error en la solicitud de eliminar estaciones:', error);
-            alert('Error al intentar eliminar estaciones. Verifica la conexión con el servidor.');
-        }
-    };
-
     const handleViewReservations = async (location) => {
         setSelectedLocation(location);
         setViewingMonitoring(false);
@@ -130,7 +70,7 @@ function MyStations({ user }) {
         try {
             const response = await fetch(`${window.location.protocol}//${window.location.hostname}:5000/current?locationId=${location.id}`);
             const data = await response.json();
-
+            console.log(data)
             if (data.status === "OK" && Array.isArray(data.data)) {
                 setMonitoringData(prevData => ({
                     ...prevData,
@@ -155,16 +95,6 @@ function MyStations({ user }) {
                 <title>Mis Estaciones - Charging Stations as a Service</title>
             </Helmet>
             <h2>Mis Estaciones</h2>
-            <div>
-                <label htmlFor="quantity">Cantidad de estaciones:</label>
-                <input
-                    type="number"
-                    id="quantity"
-                    value={quantity}
-                    onChange={(e) => setQuantity(Math.max(1, e.target.value))}
-                    min="1"
-                />
-            </div>
             <table className="styled-table">
                 <thead>
                     <tr>
@@ -179,8 +109,6 @@ function MyStations({ user }) {
                             <td>{location.nombre}</td>
                             <td>{stationCounts[location.id] || 0}</td>
                             <td>
-                                <button onClick={() => handleAddStation(location.id)} className="action-btn add-btn">Añadir Estación</button>
-                                <button onClick={() => handleRemoveStation(location.id)} className="action-btn remove-btn">Quitar Estación</button>
                                 <button onClick={() => handleViewReservations(location)} className="action-btn view-btn">Ver Reservas</button>
                                 <button onClick={() => handleMonitorCurrent(location)} className="action-btn monitor-btn">Monitorear Consumo</button>
                             </td>
@@ -222,30 +150,42 @@ function MyStations({ user }) {
             {viewingMonitoring && selectedLocation && (
                 <div className="monitoring-data">
                     <h3>Datos de Monitoreo para {selectedLocation.nombre}</h3>
-                    <table className="styled-table">
-                        <thead>
-                            <tr>
-                                <th>Estación</th>
-                                <th>Consumo</th>
-                                <th>Fecha</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {Array.isArray(monitoringData[selectedLocation.id]) && monitoringData[selectedLocation.id].length > 0 ? (
-                                monitoringData[selectedLocation.id].map((data, index) => (
-                                    <tr key={index}>
-                                        <td>{data.station_id}</td>
-                                        <td>{data.valor_medicion}</td>
-                                        <td>{new Date(data.timestamp).toLocaleString()}</td>
-                                    </tr>
-                                ))
-                            ) : (
-                                <tr>
-                                    <td colSpan="3">No hay datos disponibles para monitorear.</td>
-                                </tr>
-                            )}
-                        </tbody>
-                    </table>
+                    {monitoringData[selectedLocation.id]?.length > 0 ? (
+                        Object.values(monitoringData[selectedLocation.id].reduce((acc, curr) => {
+                            const stationId = curr.station_id;
+                            if (!acc[stationId]) {
+                                acc[stationId] = [];
+                            }
+                            acc[stationId].push(curr);  // Agrupar datos por station_id
+                            return acc;
+                        }, {}))
+                        .map((data, index) => (
+                            <div key={index} className="graph-container">
+                                <h4>Estación {data[0].station_id}</h4>
+                                <ResponsiveContainer width="80%" height={300}>
+                                    <LineChart data={data}>
+                                        <CartesianGrid stroke="#ccc" />
+                                        <XAxis
+                                            dataKey="timestamp"
+                                            tickFormatter={(tick) => {
+                                                // Formatear las horas en el eje X
+                                                const date = new Date(tick);
+                                                return `${date.getHours()}:${date.getMinutes()}`;
+                                            }}
+                                        />
+                                        <YAxis label={{ value: 'Consumo [W]', angle: -90, position: 'insideLeft' }} />
+                                        <Tooltip
+                                            labelFormatter={(label) => new Date(label).toLocaleString()}
+                                        />
+                                        <Legend />
+                                        <Line type="monotone" dataKey="valor_medicion" stroke="#8884d8" name="Consumo [W]" />
+                                    </LineChart>
+                                </ResponsiveContainer>
+                            </div>
+                        ))
+                    ) : (
+                        <p>No hay datos disponibles para monitorear.</p>
+                    )}
                 </div>
             )}
         </div>
